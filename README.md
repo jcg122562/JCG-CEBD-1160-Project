@@ -5,6 +5,7 @@
 |:-------|:---------------|
 |Jonathan C. Galindez|2019 November 23, 2019|
 
+
 ### Resources
 Your repository should include the following:
 
@@ -38,6 +39,7 @@ The two twitter acounts we tested here, do not share the same performance relate
 | Clinton | Trump |
 |:-------|:---------------|
 |![matrix](./figures/clinton_confusion_matrix.png) |![matrix](./figures/trump_confusion_matrix.png)|
+|![matrix](./figures/clinton_performance_report.png) |![matrix](./figures/trump_performance_report.png)|
 
 ### Discussion
 
