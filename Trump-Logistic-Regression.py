@@ -214,7 +214,10 @@ print(confusion_matrix(y_test, predicted_values))
 cnf_matrix = (confusion_matrix(y_test, predicted_values))
 
 print('Overall f1-score - Donald Trump')
-print(f1_score(y_test, predicted_values, average="macro"))
+# print(f1_score(y_test, predicted_values, average="macro"))
+
+f1 = f1_score(y_test, predicted_values, average="macro")
+print(f1)
 
 df_tweet.to_csv('data/trump_predict.csv')
 
@@ -227,7 +230,8 @@ cv = ShuffleSplit(n_splits=5)
 print(cross_val_score(lr, X, y, cv=cv))
 
 # ####
-# Heat Map
+# Heat Mapplt.tight_layout()
+
 sns.set()
 
 class_names=[1, 2, 3, 4] # name  of classes
@@ -245,5 +249,5 @@ plt.xlabel('Predicted')
 ax.set_xticklabels(class_names)
 ax.set_yticklabels(class_names)
 plt.tight_layout()
-plt.savefig('figures/trump_confusion_matrix.png', dpi=300)
+plt.savefig('figures/trump_confusion_matrix.png', dpi=150)
 plt.close()

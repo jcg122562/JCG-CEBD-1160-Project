@@ -245,7 +245,7 @@ plt.xlabel('Predicted')
 ax.set_xticklabels(class_names)
 ax.set_yticklabels(class_names)
 plt.tight_layout()
-plt.savefig('figures/clinton_confusion_matrix.png', dpi=300)
+plt.savefig('figures/clinton_confusion_matrix.png', dpi=150)
 plt.close()
 
 
