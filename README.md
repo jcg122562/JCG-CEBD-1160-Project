@@ -39,7 +39,7 @@ The two twitter acounts we tested here, do not share the same performance relate
 | Clinton | Trump |
 |:-------|:---------------|
 |![matrix](./figures/clinton_confusion_matrix.png) |![matrix](./figures/trump_confusion_matrix.png)|
-|![matrix](./figures/clinton_performance_report.png) |![matrix](./figures/trump_performance_report.png)|
+|![matrix](./figures/clinton_performance_report.PNG) |![matrix](./figures/trump_performance_report.PNG)|
 
 ### Discussion
 
