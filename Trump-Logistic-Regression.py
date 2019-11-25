@@ -247,4 +247,3 @@ ax.set_yticklabels(class_names)
 plt.tight_layout()
 plt.savefig('figures/trump_confusion_matrix.png', dpi=300)
 plt.close()
-
