@@ -17,9 +17,6 @@ Your repository should include the following:
 
 Can I predict the level of retweet based on the sentiment score, day and time and the number of users mentioned in the tweet. 
 
-![matrix](./figures/trump_clinton_tweet_comparison.png)
-
-
 ### Abstract
 
 This paper outlines how to data mine a twitter post dataset and produce a sentiment analysis that can provide insights to the value of every tweet. Composing a perfect tweet that can get the attention of the netizens is a big challenge causing many organizations including popular personalities both in entertainment and politics, to hire a social media manager to make sure all postings are effectively written with an objective to be retweeted multiple times. In this premise, I have created a model that will **predict the retweetable level of a tweet** based on the favorite count, sentiment score using VADER Sentiment [1]. I have added the day, time period and the number of "@mention" (other important users mentioned) in the tweet as part of the features to be tested using logistic regression model [2].  The result has shown a promising indication, that the features of the tweet used can predict retweetability level with acceptable accuracy. 
@@ -37,6 +34,10 @@ To prepare the features, I have performed an extensive cleaning of the dataset t
 ### Results
 
 The two twitter acounts we tested here, do not share the same performance related to harmonic mean, the F1 score using the same model. This could be attributed to the occurence of class imbalanced, in this case, the neutral sentiment times can be higher than the positive and negative sentiments. Having said that, the probabilty of predicting the virality of the  tweet based on my initial features yielded a fair result. Applying other techniques related to sampling, adjusting classification, introducinng new features like going down to counting the positive and negative words used (see related works).  For sentiment analysis, external events can also play a factor and can be extracted to get better prediction (ex. political debate sentiment).
+
+| Clinton | Trump |
+|:-------|:---------------|
+|![matrix](./figures/clinton_confusion_matrix.png) |![matrix](./figures/trump_confusion_matrix.png)|
 
 ### Discussion
 
