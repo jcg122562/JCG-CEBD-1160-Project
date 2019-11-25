@@ -46,7 +46,7 @@ df.drop(['id', 'is_retweet', 'original_author', 'in_reply_to_screen_name', 'in_r
         , axis=1, inplace=True)
 
 # Now, we have a total of five (5) columns remaining as follows:
-#   handle -- twitter account (HillaryClinton and realDonaldTrump)
+#   handle -- twitter account (HillaryClinton and @realDonaldTrump)
 #   text   -- the actual tweet
 #   time   -- the date and time of posting
 #   retweet_count -- total times the tweet was retweeted
@@ -157,8 +157,8 @@ df['favorite_class'] = np.where(df['favorite_count'].between(0, 2000), 1,
                                 np.where(df['favorite_count'].between(2001, 4000), 2,
                                          np.where(df['favorite_count'].between(4001, 6000), 3, 4)))
 
-# get trump data only to test
-df = df[df['handle'] == 'realDonaldTrump']
+# get clinton data only to test
+df = df[df['handle'] == 'HillaryClinton']
 
 # get the features for processing
 
@@ -200,27 +200,27 @@ predicted_values = lr.predict(X_test)
 #     print(f'Value: {real}, pred: {predicted} {"is different" if real != predicted else ""}')
 
 # Printing accuracy score(mean accuracy) from 0 - 1
-print(f'Donald Trump - Accuracy score is {lr.score(X_test, y_test):.2f}/1 \n')
+print(f'Hillary Clinton - Accuracy score is {lr.score(X_test, y_test):.2f}/1 \n')
 
 # # Printing the classification report
 # from sklearn.metrics import classification_report, confusion_matrix, f1_score
 
-print('Classification Report - Donald Trump')
+print('Classification Report - Hillary Clinton')
 print(classification_report(y_test, predicted_values))
 
 # Printing the classification confusion matrix (diagonal is true)
-print('Confusion Matrix - Donald Trump')
+print('Confusion Matrix - Hillary Clinton')
 print(confusion_matrix(y_test, predicted_values))
 cnf_matrix = (confusion_matrix(y_test, predicted_values))
 
-print('Overall f1-score - Donald Trump')
+print('Overall f1-score - Hillary Clinton')
 print(f1_score(y_test, predicted_values, average="macro"))
 
-df_tweet.to_csv('data/trump_predict.csv')
+df_tweet.to_csv('data/clinton_predict.csv')
 
 # Cross validation using cross_val_score
 from sklearn.model_selection import cross_val_score, ShuffleSplit
-print(f'Donald Trump: ', cross_val_score(lr, X, y, cv=5))
+print(f'Hillary Clinton: ', cross_val_score(lr, X, y, cv=5))
 
 # Cross validation using shuffle split
 cv = ShuffleSplit(n_splits=5)
@@ -239,12 +239,12 @@ plt.yticks(tick_marks, class_names)
 sns.heatmap(pd.DataFrame(cnf_matrix), annot=True, cmap="autumn", fmt='g', center=0.00)
 plt.grid()
 ax.xaxis.set_label_position("bottom")
-plt.title('Confusion matrix - Donald Trump')
+plt.title('Confusion matrix - Hillary Clinton')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 ax.set_xticklabels(class_names)
 ax.set_yticklabels(class_names)
 plt.tight_layout()
-plt.savefig('figures/trump_confusion_matrix.png', dpi=300)
+plt.savefig('figures/clinton_confusion_matrix.png', dpi=300)
 plt.close()
 
