@@ -17,6 +17,9 @@ Your repository should include the following:
 ### Research Question
 
 Can I predict the level of retweet based on the sentiment score, day and time and the number of users mentioned in the tweet. 
+| Clinton | Trump |
+|:-------|:---------------|
+|![matrix](./figures/clinton_sentiment.png) |![matrix](./figures/trump_sentiment.png)|
 
 ### Abstract
 
