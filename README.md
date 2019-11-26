@@ -20,7 +20,7 @@ Can I predict the level of retweet based on the sentiment score, day and time an
 
 ### Abstract
 
-This paper outlines how to data mine a twitter post dataset and produce a sentiment analysis that can provide insights to the value of every tweet. Composing a perfect tweet that can get the attention of the netizens is a big challenge causing many organizations including popular personalities both in entertainment and politics, to hire a social media manager to make sure all postings are effectively written with an objective to be retweeted multiple times. In this premise, I have created a model that will **predict the retweetable level of a tweet** based on favorite count, **sentiment score** using VADER Sentiment [1]. I have added the day, time period and the number of "@mention" (other important users mentioned) in the tweet as part of the features to be tested using logistic regression model [2].  The result has shown a promising indication, that the features used can predict retweetability level with acceptable accuracy. 
+This paper outlines how to data mine a twitter post dataset and produce a sentiment analysis that can provide insights to the value of every tweet. Composing a perfect tweet that can get the attention of the netizens is a big challenge causing many organizations including popular personalities both in entertainment and politics, to hire a social media manager to make sure all postings are effectively written with an objective to be retweeted multiple times. In this premise, I have created a model that will **predict the retweetable level of a tweet** based on favorite count, **sentiment score** using VADER Sentiment[1]. I have added the day, time period and the number of "@mention" (other important users mentioned) in the tweet as part of the features to be tested using logistic regression model [2].  The result has shown a promising indication, that the features used can predict retweetability level with acceptable accuracy. 
 
 ### Introduction
 
@@ -48,7 +48,7 @@ It is highly recommended to apply other techniques related to sampling, adjustin
 For sentiment analysis, external events can also play a factor and can be extracted to get better prediction (ex. political debate sentiment).
 
 ### Reference
-- [1] VADER Sentiment Analysis - https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
+- [1] https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
 - [2] Logistic Regression Model - https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 - [3] Dataset from Kaggle Inc. - WWW.Kaggle.com
 
