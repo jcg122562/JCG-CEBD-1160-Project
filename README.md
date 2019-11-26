@@ -51,11 +51,11 @@ For sentiment analysis, external events can also play a factor and can be extrac
 
 Positive and Negative Words Used:
 
-| Clinton Positive Words| Trump Positive Words |
-|:-------|:---------------|
+| Clinton Positive Words| Clinton Negative Words | Trump Positive Words | Trump Negative Words|
+|:-------|:---------------|----------------------|----------------------|---------------------| 
 |        |                |
-|![matrix](./figures/clinton_positive_cloud.png) |![matrix](./figures/trump_positive_cloud.png)|
-|![matrix](./figures/clinton_positive_words.png) |![matrix](./figures/trump_positive_words.png)|
+|![matrix](./figures/clinton_positive_cloud.png)|![matrix](./figures/clinton_negative_cloud.png)  |![matrix](./figures/trump_positive_cloud.png)| ![matrix](./figures/trump_negative_cloud.png)|
+|![matrix](./figures/clinton_positive_words.png) | ![matrix](./figures/clinton_negative_words.png) |![matrix](./figures/trump_positive_words.png)| ![matrix](./figures/trump_negative_words.png)
 
 
 
