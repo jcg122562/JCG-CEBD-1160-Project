@@ -47,6 +47,16 @@ It is highly recommended to apply other techniques related to sampling, adjustin
 
 For sentiment analysis, external events can also play a factor and can be extracted to get better prediction (ex. political debate sentiment).
 
+### Related Works
+
+Positive and Negative Words Used:
+
+| Clinton | Trump |
+|:-------|:---------------|
+|        |                |
+|![matrix](./figures/clinton_positive_cloud.png) |![matrix](./figures/trump_positive_cloud.png)|
+
+
 ### References
 1. VADER Sentiment - https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
 2. Logistic Regression - https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
