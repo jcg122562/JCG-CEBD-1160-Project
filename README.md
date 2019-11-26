@@ -67,3 +67,4 @@ Positive and Negative Words Used:
 - https://www.datacamp.com/community/tutorials/understanding-logistic-regression-python
 - http://papers.www2017.com.au.s3-website-ap-southeast-2.amazonaws.com/companion/p1485.pdf
 - https://blog.goodaudience.com/machine-learning-using-logistic-regression-in-python-with-code-ab3c7f5f3bed
+- https://medium.com/analytics-vidhya/accuracy-vs-f1-score-6258237beca2
