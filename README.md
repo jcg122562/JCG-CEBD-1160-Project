@@ -62,5 +62,6 @@ Positive and Negative Words Used:
 1. VADER Sentiment - https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
 2. Logistic Regression - https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 3. Kaggle Inc. - https://www.kaggle.com/benhamner/clinton-trump-tweets
-4. Good Read: https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/
-5.            https://www.datacamp.com/community/tutorials/understanding-logistic-regression-python
+4. Good Read: 
+- https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/
+- https://www.datacamp.com/community/tutorials/understanding-logistic-regression-python
