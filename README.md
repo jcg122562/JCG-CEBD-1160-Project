@@ -9,7 +9,7 @@
 ### Resources
 Your repository should include the following:
 
-- Python script for your analysis: `tweet_analysis.py`
+- Python script for your analysis: `Clinton_Logistic_Regression.py, Trump_Logistic_Regression.py  `   
 - Results figure/saved file:  `figures/`
 - Dockerfile for your experiment: `Dockerfile`
 - runtime-instructions in a file named RUNME.md
