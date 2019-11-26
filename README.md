@@ -48,9 +48,9 @@ It is highly recommended to apply other techniques related to sampling, adjustin
 For sentiment analysis, external events can also play a factor and can be extracted to get better prediction (ex. political debate sentiment).
 
 ### Reference
-[1]: https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
-[2]: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
-[3]: www.Kaggle.com
+[1]:https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
+[2]:https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+[3]:https://www.kaggle.com/benhamner/clinton-trump-tweets
 
 
 
