@@ -65,3 +65,5 @@ Positive and Negative Words Used:
 4. Good Read: 
 - https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/
 - https://www.datacamp.com/community/tutorials/understanding-logistic-regression-python
+- http://papers.www2017.com.au.s3-website-ap-southeast-2.amazonaws.com/companion/p1485.pdf
+- https://blog.goodaudience.com/machine-learning-using-logistic-regression-in-python-with-code-ab3c7f5f3bed
