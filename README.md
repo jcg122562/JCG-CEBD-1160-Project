@@ -64,7 +64,3 @@ Positive and Negative Words Used:
 3. Kaggle Inc. - https://www.kaggle.com/benhamner/clinton-trump-tweets
 4. Good Read: https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/
 5.            https://www.datacamp.com/community/tutorials/understanding-logistic-regression-python
-
-
-
-
