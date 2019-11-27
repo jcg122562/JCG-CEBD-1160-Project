@@ -20,7 +20,7 @@ Can I predict the level of retweet based on the sentiment score, day and time an
 
 | Clinton | Trump |
 |:-------|:---------------|
-|![matrix](./figures/clinton_sentiment.png) |![matrix](./figures/trump_sentiment.png)|
+|![matrix](./figures/hillary_sentiment.png) |![matrix](./figures/donald_sentiment.png)|
 
 ### Abstract
 
