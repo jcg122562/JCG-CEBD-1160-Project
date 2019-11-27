@@ -387,13 +387,13 @@ ax.get_yaxis().get_major_formatter().set_scientific(False)
 ax.legend(prop={'size': 10})
 
 # Add axis and chart labels.
-ax.set_xlabel('Tweet Date', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_xlabel('', labelpad=10, fontsize=10, fontweight='bold')
 ax.set_ylabel('Sentiment Score', labelpad=10, fontsize=10, fontweight='bold')
 ax.set_title('Hillary Clinton Sentiment', pad=10, fontsize=12, fontweight='bold')
 
 fig.tight_layout()
 plt.savefig('figures/hillary_sentiment.png', dpi=300)
-plt.show()
+# plt.show()
 plt.close()
 
 # trump sentiment
@@ -428,11 +428,11 @@ ax.get_yaxis().get_major_formatter().set_scientific(False)
 ax.legend(prop={'size': 10})
 
 # Add axis and chart labels.
-ax.set_xlabel('Tweet Date', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_xlabel('', labelpad=10, fontsize=10, fontweight='bold')
 ax.set_ylabel('Sentiment Score', labelpad=10, fontsize=10, fontweight='bold')
 ax.set_title('Donald Trump Sentiment', pad=10, fontsize=12, fontweight='bold')
 
 fig.tight_layout()
 plt.savefig('figures/donald_sentiment.png', dpi=300)
-plt.show()
+# plt.show()
 plt.close()
