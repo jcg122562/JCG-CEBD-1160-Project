@@ -58,6 +58,9 @@ df.drop(['id', 'is_retweet', 'original_author', 'in_reply_to_screen_name', 'in_r
 df['actual_date'] = df['time'].str[:10]
 df['actual_date'] = pd.to_datetime(df['actual_date'], format='%Y/%m/%d')
 
+df = df[
+    (df['actual_date'] >= '2016-4-1') & (df['actual_date'] <= '2016-9-30')]
+
 # actual time
 df['actual_time'] = df['time'].str[11:]
 df['actual_time'] = pd.to_datetime(df["actual_time"], format='%H:%M:%S').dt.time

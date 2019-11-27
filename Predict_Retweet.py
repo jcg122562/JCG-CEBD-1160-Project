@@ -1,6 +1,8 @@
 # Tweet Analysis -- objective, predict the retweet level of a tweet
 import string
 import seaborn as sns
+sns.set()
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -67,6 +69,7 @@ df.drop(['id', 'is_retweet', 'original_author', 'in_reply_to_screen_name', 'in_r
 df['actual_date'] = df['time'].str[:10]
 df['actual_date'] = pd.to_datetime(df['actual_date'], format='%Y/%m/%d')
 
+
 # actual time
 df['actual_time'] = df['time'].str[11:]
 df['actual_time'] = pd.to_datetime(df["actual_time"], format='%H:%M:%S').dt.time
@@ -92,6 +95,10 @@ df['month'] = df['month'].astype(str)
 
 # get weekday -- i would like  to know if there is a pattern for high retweet based on what day it was posted
 df['week_day'] = df['actual_date'].dt.dayofweek
+
+df = df[
+    (df['actual_date'] >= '2016-4-1') & (df['actual_date'] <= '2016-9-30')]
+
 
 
 # Let's clean the tweet text and create columns at the same time
@@ -125,6 +132,7 @@ def text_cleanup(column):
     df['work_count'] = df.text.str.count("work")
     df['stronger_count'] = df.text.str.count("stronger")
     df['america_count'] = df.text.str.count("america")
+
 
 # execute the cleanup
 text_cleanup('text')
@@ -165,9 +173,6 @@ df['favorite_class'] = np.where(df['favorite_count'].between(0, 2000), 1,
                                 np.where(df['favorite_count'].between(2001, 4000), 2,
                                          np.where(df['favorite_count'].between(4001, 6000), 3, 4)))
 
-# add specific word
-
-
 # get clinton data only to test
 dfc = df[df['handle'] == 'HillaryClinton']
 
@@ -177,11 +182,11 @@ dft = df[df['handle'] == 'realDonaldTrump']
 # get the features for processing
 dfc_tweet = dfc[['retweet_class', 'sentiment_class', 'favorite_class', 'hashtag_count', 'mention_count',
                  'week_day', 'hour', 'session', 'retweet_count', 'favorite_count',
-                 'pos', 'neg', 'neu', 'compound', 'work_count', 'stronger_count', 'america_count']]
+                 'pos', 'neg', 'neu', 'compound', 'work_count', 'stronger_count', 'america_count', 'month']]
 
 dft_tweet = dft[['retweet_class', 'sentiment_class', 'favorite_class', 'hashtag_count', 'mention_count',
                  'week_day', 'hour', 'session', 'retweet_count', 'favorite_count',
-                 'pos', 'neg', 'neu', 'compound', 'work_count', 'stronger_count', 'america_count']]
+                 'pos', 'neg', 'neu', 'compound', 'work_count', 'stronger_count', 'america_count', 'month']]
 
 # different features for experiment
 # feature_names = ['sentiment_class', 'session', 'week_day', 'mention_count']
@@ -239,6 +244,7 @@ dfc_tweet.to_csv('data/clinton_predict.csv')
 
 # Cross validation using cross_val_score
 from sklearn.model_selection import cross_val_score, ShuffleSplit
+
 print(f'Hillary Clinton: ', cross_val_score(lr, X, y, cv=5))
 
 # Cross validation using shuffle split
@@ -249,7 +255,7 @@ print(f'Hillary Clinton: ', cross_val_score(lr, X, y, cv=cv))
 # Heat Map
 sns.set()
 
-class_names=[1, 2, 3, 4] # name  of classes
+class_names = [1, 2, 3, 4]  # name  of classes
 fig, ax = plt.subplots()
 tick_marks = np.arange(len(class_names))
 plt.xticks(tick_marks, class_names)
@@ -308,9 +314,9 @@ print(f1_score(y_test, predicted_values, average="macro"))
 
 dft_tweet.to_csv('data/trump_predict.csv')
 
-
 # Cross validation using cross_val_score
 from sklearn.model_selection import cross_val_score, ShuffleSplit
+
 print(f'Donald Trump: ', cross_val_score(lr, X, y, cv=5))
 
 # Cross validation using shuffle split
@@ -321,7 +327,7 @@ print(cross_val_score(lr, X, y, cv=cv))
 # Heat Map
 sns.set()
 
-class_names=[1, 2, 3, 4] # name  of classes
+class_names = [1, 2, 3, 4]  # name  of classes
 fig, ax = plt.subplots()
 tick_marks = np.arange(len(class_names))
 plt.xticks(tick_marks, class_names)
@@ -339,3 +345,94 @@ plt.tight_layout()
 plt.savefig('figures/trump-confusion-matrix.png', dpi=300)
 plt.close()
 
+# # Set 3
+# dfc groupby
+dfc1 = dfc.groupby(['handle', 'actual_date'], as_index=False).agg({'retweet_count': 'sum',
+                                                                 'favorite_count': 'sum',
+                                                                 'pos': 'sum', 'neg': 'sum', 'neu': 'sum',
+                                                                 'compound': 'sum'})
+# dft groupby
+dft1 = dft.groupby(['handle', 'actual_date'], as_index=False).agg({'retweet_count': 'sum',
+                                                                 'favorite_count': 'sum', 'pos': 'sum', 'neg': 'sum', 'neu': 'sum',
+                                                                 'compound': 'sum'})
+
+bar_width = .1
+x = np.arange(len(dfc1.actual_date.unique()))
+
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 5), dpi=100)
+plt.style.use("ggplot")
+
+b1 = ax.scatter(x, dfc1['pos'], label="Positive", alpha=0.7, color="green")
+
+# Same thing, but offset the x by the width of the bar.
+b2 = ax.scatter(x + bar_width, dfc1['neu'], label="Neutral",
+                alpha=0.7, color="gray")
+b3 = ax.scatter(x + bar_width, dfc1['neg'], label="Negative",
+                alpha=0.7, color="red")
+
+ax.set_xticks(x + bar_width)
+ax.set_xticklabels(dfc1.actual_date.unique())
+
+# set the ticks font to 8
+for tick in ax.xaxis.get_major_ticks():
+    tick.label.set_fontsize(8)
+for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(8)
+
+# ensure the format of the y axis using the actual values and not exponential
+ax.get_yaxis().get_major_formatter().set_scientific(False)
+
+# Add legend.
+ax.legend(prop={'size': 10})
+
+# Add axis and chart labels.
+ax.set_xlabel('Tweet Date', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_ylabel('Sentiment Score', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_title('Hillary Clinton Sentiment', pad=10, fontsize=12, fontweight='bold')
+
+fig.tight_layout()
+plt.savefig('figures/hillary_sentiment.png', dpi=300)
+plt.show()
+plt.close()
+
+# trump sentiment
+bar_width = .1
+x = np.arange(len(dft1.actual_date.unique()))
+
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 5), dpi=100)
+plt.style.use("ggplot")
+
+b1 = ax.scatter(x, dft1['pos'], label="Positive", alpha=0.7, color="green")
+
+# Same thing, but offset the x by the width of the bar.
+b2 = ax.scatter(x + bar_width, dft1['neu'], label="Neutral",
+                alpha=0.7, color="gray")
+b3 = ax.scatter(x + bar_width, dft1['neg'], label="Negative",
+                alpha=0.7, color="red")
+
+ax.set_xticks(x + bar_width)
+ax.set_xticklabels(dft1.actual_date.unique())
+
+# set the ticks font to 8
+for tick in ax.xaxis.get_major_ticks():
+    tick.label.set_fontsize(8)
+for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(8)
+
+# ensure the format of the y axis using the actual values and not exponential
+ax.get_yaxis().get_major_formatter().set_scientific(False)
+
+# Add legend.
+ax.legend(prop={'size': 10})
+
+# Add axis and chart labels.
+ax.set_xlabel('Tweet Date', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_ylabel('Sentiment Score', labelpad=10, fontsize=10, fontweight='bold')
+ax.set_title('Donald Trump Sentiment', pad=10, fontsize=12, fontweight='bold')
+
+fig.tight_layout()
+plt.savefig('figures/donald_sentiment.png', dpi=300)
+plt.show()
+plt.close()

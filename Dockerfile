@@ -4,11 +4,14 @@ RUN apt-get update \
     && apt-get install -y python3-pip \
     && pip3 install --upgrade pip
 
-RUN pip3 install numpy pandas matplotlibrun seaborn plotly sklearn
+RUN pip3 install numpy pandas matplotlib seaborn plotly sklearn vadersentiment
 
 WORKDIR /app
 
-COPY short-lived-full-example.py /app
-COPY data/titanic/* /app/data/titanic/
+COPY main.py /app
+COPY Clinton-Logistic-Regression.py /app
+COPY Trump-Logistic-Regression.py /app
+COPY data/* /app/data/
+COPY figures/* /app/figures/
 
-CMD ["python3","-u","./short-lived-full-example.py"]
+CMD ["python3","-u","./main.py"]
