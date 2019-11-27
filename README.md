@@ -34,7 +34,7 @@ The dataset, with 5071 rows and 28 columns, consists of the tweets of Hillary Cl
 
 ### Methods
 
-To prepare the features, I have performed an extensive cleaning of the dataset that includes feature selection, extraction and transformation. I selected the ordinal logistic regression model ([Pseudocode link](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html "Logistic Regression Link!")) as my predicted value is categorical that has 4 ordinal categories namely, 1 for 2000 retweets and below, 2 for 2001-4000, 3 for 4001-6000 and 4 for above 6000. The logistic regression fits my objective to answer my research question as to whether the featured indenpendent variables mentioned in the **abstract** can predict the level of the tweet's virality as measured by the retweet level.
+To prepare the features, I have performed an extensive cleaning of the dataset that includes feature selection, extraction and transformation. I selected the ordinal logistic regression model ([Pseudocode link](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html "Logistic Regression Link!")) because my predicted value is categorical, which has 4 ordinal categories namely, 1 for 2000 retweets and below, 2 for 2001-4000, 3 for 4001-6000 and 4 for above 6000. The logistic regression fits my objective to answer my research question as to whether the featured indenpendent variables mentioned in the **abstract** can predict the level of the tweet's virality as measured by the retweet level.
 
 ### Results
 
