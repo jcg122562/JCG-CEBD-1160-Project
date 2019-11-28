@@ -9,8 +9,9 @@
 ### Resources
 Your repository should include the following:
 
-- Python script for your analysis: `Clinton_Logistic_Regression.py, Trump_Logistic_Regression.py  `   
+- Python script for your analysis: `Clinton_Logistic_Regression.py, Trump_Logistic_Regression.py, main.py  `   
 - Results figure/saved file:  `figures/`
+- Data file: `data/`
 - Dockerfile for your experiment: `Dockerfile`
 - runtime-instructions in a file named RUNME.md
 
