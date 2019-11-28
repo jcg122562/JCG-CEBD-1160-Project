@@ -7,7 +7,6 @@ RUN apt-get update \
 RUN pip3 install numpy pandas matplotlib seaborn plotly sklearn vadersentiment
 
 WORKDIR /app
-
 COPY main.py /app
 COPY Clinton-Logistic-Regression.py /app
 COPY Trump-Logistic-Regression.py /app
