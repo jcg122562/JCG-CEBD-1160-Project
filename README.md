@@ -13,6 +13,7 @@ Your repository should include the following:
 - Results figure/saved file:  `figures/`
 - Data file: `data/`
 - Dockerfile for your experiment: `Dockerfile`
+- App Dependencies: `Requirement.txt
 - runtime-instructions: `RUNME.md`
 
 ### Research Question
